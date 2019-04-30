@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml type="vertical"
+	xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml"
+	  xmlns:py="http://code.google.com/p/python-bulletml/">
+
+  <action label="top">
+  <repeat>
+  <times>1</times>
+    <action>
+    <actionRef label="shoot">
+      <param>0</param>
+      <param>7</param>
+    </actionRef>
+  <wait>20</wait>
+  </action>
+  </repeat>
+  </action>
+
+  <action label="shoot">
+  	<fire>
+      <direction>$1</direction>
+      <speed>$2</speed>
+      <bullet />
+  	</fire>
+  </action>
+
+
+</bulletml>

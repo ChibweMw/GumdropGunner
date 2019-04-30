@@ -1,0 +1,87 @@
+If I haven't made it clear yet, I'm working on another shmup. This time, since I'm not restricted by a competition deadline, I've been paying close attention to the art behind creating shmups, both commercially and online. The big boys appear to be doing everything right. I only ever have a few nitpicks about them. If I ever feel like I don't like one, it's because of personal preference, not something that I can point out as being done poorly.
+
+As for the indie shmups available for free or for a few bucks, they are hit or miss. Sometimes the design is ingenious, but the presentation is lacking. Sometimes the visuals are spectacular, but the gameplay is uninspired. Sometimes the game is pretty good, but could have been pushed further in various areas. There's a different reason for each game, but the importance here is that I'm taking notes on all of it.
+
+Below I've gathered together a list of what I've observed over the months and years of playing. The ideas are in no particular order and only represent a fraction of my records. I thought I'd share them so you, too, can pinpoint a reason for any given game not being quite what you had hoped.
+
+Keep in mind that not everything I say is required for every shmup. They each have their own place. Most of these notes are for scrolling and arena shooters, while some apply to any game or piece of art.
+
+
+
+Enemy bullets should always be visible. The bullets shot by enemies should be visible on top of explosions, power-ups, other enemies, etc. The point here is that those bullets are your primary reason for not beating the game. Any time not spent being able to see them is time not spent preparing to engage them. If a foreground object is going to obscure the view of play, it's a good idea to make sure no bullets are on-screen. The only exception for hiding bullets is the HUD; for this reason, the HUD should be kept to a visual minimum.
+
+Off-screen enemies should not be able to shoot. If the enemies aren't visible to the player, then how can a player even have a chance at feeling good about himself when dying from one of these bullets? This causes too much confusion, anger, and force quitting.
+
+All bullets should have a ricochet/splash effect when hitting something. Without some sort of "splash" or "pop" effect to show contact, it makes it feel like either the bullets have no effect or they're passing under the enemy/obstacle in question.
+
+Bullet collision should be accurate. This goes for any game where you can shoot and be shot at, but it's just a shame to be shooting something and having your bullets pass right by, or meeting the all-too-familiar death from a bullet that wasn't even in your area code.
+
+If the player's ship has a small hitbox, make it obvious. I seemed to miss this point with my last shmup. The key here is to let the player quickly know his boundaries of death when in a crunch. Sometimes only a few frames of opportunity are available, during which time it's essential to be able to see where your sweet spot is.
+
+The contrast between bullets and backgrounds should be high. This is something that's very important for survival, let alone for aesthetically pleasing visuals. An indie game for Dreamcast, Last Hope, had a special edition released that featured a higher bullet contrast. When Cave releases black label editions of their shmups, they oftentimes feature "darker background palettes". Also of note is that Cave has stuck with pink and bright blue colors for the bullets in all of their games. I guess they found the magic palette to make identifying bullets easiest.
+
+Enemies should show some sign of being hit. If an enemy doesn't flicker or shake or shoot sparks when being shot, I can only assume that it is invulnerable to attack. The whole thing doesn't need to flash white (it really hurts the eyes with bosses), but there needs to be some indication of it taking damage. On that note, if an enemy is invulnerable (shields are up, boss hasn't settled yet, etc.), don't change a thing about it. Some games let your bullets pass through during these times, which is also fine.
+
+Everything that is destroyed should explode. I'm almost completely serious when I say explode. As in fire and smoke. It doesn't seem to matter what the enemy is made out of; humans by nature love to see explosions and there's nothing more satisfying than watching something dangerous go up in flames. The Mushihimesama series gets around its insect/prehistoric theme by coloring its explosions blue, which in turn makes it look like a release of natural gas... or something. The point is, if you spend all that time pumping an enemy full of bullets, all of Newton's Laws say that it should explode into a fiery ball of satisfying pixelated splendor. And as far as boss explosions go, they better be a spectacular light show of gaseous fulfillment, including a screen-flooding flash of brightness that slows down gameplay.
+
+There should be a sense of flow to each level. If you fast-forward through superplays of various commercial shmups, it becomes very clear that the design of each level is structured to force you to want to zig and zag all over the place. It not only keeps your wrists happy, but it never leaves you waiting in boredom. Radiant Silvergun and Ikaruga both reward quick killers with additional enemies to shoot while waiting for the next section to arrive. It's okay to have nothing to do while being warned about a boss. For one, this gives your eyes a chance to focus on the text. Second, it allows you to build up whatever fear/confidence that its presence concocts in your body. Even arena shmups like Geometry Wars and Echoes provide a flow in where the enemies spawn.
+
+The visual style should be consistent through all levels, enemies, effects, menus, etc. The fact that this is something that every artist ever in history should be considering, it's sad to see it ignored so often. It's as if every 14-year-old with a wicked idea and limited freetime has used the same animated GIF of an explosion in his game. I was one of them. It's great as a placeholder, but if the rest of your game is composed of clean vector gradient fills, your explosion will not only look out of place; it will break gameplay. This happens a lot with uninspired menus as well, where a generic font is used without proper formatting. The end result can only make a player frown, no matter how spectacular the rest of the game looks.
+
+There should be "popcorn" enemies in every level. These are enemies that blow up (with an explosion) after being hit once (or very seldom). The key here is quantity. Popcorn enemies not only fill in empty holes of time between waves of more viable forces, but they also make the player feel like he's the coolest kid on his block (and if he's playing a shmup, he automatically is).
+
+There should be a way to save yourself in times of need. The most obvious method of saving one's life is the bomb. DoDonPachi also has a super/hyper beam. Ikaruga has homing lasers. Radiant Silvergun has a sword that slices everything in its path. The key here is that the player should be able to get out of a sticky situation. Most of these moves make the player invincible for a short amount of time, which in turn allows him to get out of physical obstacles as well as enemy fire.
+
+If an enemy appears out of thin air on-screen, allow time for the player to ready himself. Never have an enemy appear in the middle of the screen and fly off at full speed shooting everything its mother taught it. It's okay for it to accelerate to its destined speed, or wait a second before firing. There can even be an indication of its arrival before it even appears. Geometry Wars does this with particle splashes. Works wonders. Believe me.
+
+Enemy health should be either shown or predictable. Ikaruga shows the health of every enemy you start shooting at via a thin bar on the HUD. For games that show you nothing, you should be able to tell how long you need to be firing at an enemy before it's destroyed. Things like relative size or the presence of armor are usually good indications. If an enemy takes way too long to die, or if it explodes rather quickly, it will feel off, break gameplay, and your bewilderment over the developer's choosing of its health will put you into a stumper just long enough to be swallowed by an oncoming sea of bullets.
+
+The coming of a boss should be made clear. This can be done through a large warning sign, the sound of a siren, the sound of nothing at all, or simply a lull in enemies, signifying the coming of something large. If you don't know that you're fighting a boss, then you won't try as hard, and you also won't be as enraged when you come close to defeating it and ultimately die. Think of it this way: If you told Mr. Magoo that he just walked through a construction zone that failed its last safety and security inspections, he probably wouldn't be as emotionally struck as Lando Calrissian would feel if you told him that he just blew up the second Death Star and narrowly avoided being engulfed by its own flames (see? everything explodes). If you think that's a silly argument to make because Lando would have already known what just happened, you're right. That's the point. He knew the whole time that he was escaping certain death. The stakes were high and his adrenaline was pumping in return. The whole experience was a ride. And that's what a player needs to feel before the boss even shows its ugly mug.
+
+An unwanted sound should be heard when the player is hit/destroyed. The thought of losing a life and having to insert another quarter is enough to make a player avoid death, but the more that enforces that feeling of dread, the better. I think Squares 2 does this the best. The sound of that buzzer is the last thing I'd want to resonate in my ears, especially after having heard a looping sample from Daft Punk. Daft Punk!
+
+There should always be a way out of every situation. Here, I'm talking about designing the enemies and bullet formations such that there is definitely a way to get through, at least by the developer. I know players can lose focus and corner themselves into a tight circle of pain, but that's going to happen in any game. If you dodge the wrong way, you're only setting yourself up for failure. Half the "fun" of bullet hell games is learning how to manipulate the enemies into shooting such that you will have a measely crevice through which to escape failure. This is sometimes called bullet herding, which is kind of awesome. Even Space Invaders had this in the form of being able to hide behind your bases. That counts, right?
+
+Separate simultaneous bullet patterns should have different-looking bullets. The human brain is a beautiful thing, capable of recognizing complex patterns faster than any super computer today could ever hope to match (note: computers do not yet have hope). However, given the added sensations of stress, danger, and really fast bullets in large numbers, it would be such a great help if separate patterns had varied bullets. This can be achieved through color, shape, animation, and even rotation. The Touhou games are especially known for having hundreds of bullets on screen, each pattern distintively careening towards you at varying paces of fear induction.
+
+Camera-shake is a privelage, not a right. The effect always looks cool. Let's get that out of the way. The problem is when camera-shake is used when every enemy is destroyed, every piece of gold is collected, and every bullet is fired. Not only does this make for too much visual noise for the player's eyes (Cloverfield was under an hour for a reason), but it also dampens the effect. The less it appears, the more it'll mean for the player when it does happen. Trust me - less is more.
+
+As I've said before, all of these suggestions are optional and in my opinion. They're all things that I've seen implemented beautifully in console/arcade releases and miserably emulated in free online Flash games. Since I'm making a free online Flash game, I'm going to do my best to maintain a level of polish and attention to detail that allows the game to stay together as a whole. Even a single out-of-place sound effect can ruin the entire experience.
+
+To kind of drive these points home, I'd like to use the same identifying features from the screenshot of Ikaruga above and apply them to Space Invaders. Ya know, for fun.
+
+It would be mean to point out the games that I feel could have been more successful, even by just following my suggestions above, so I'll just talk about the free shmups that did a lot of things right.
+
+- Arcanacra: Excellent flow of gameplay, superb use of sound (The enemies/attacks are synchronized with the music), enemy bullets stay visible, enemies show signs of taking damage, there are popcorn enemies, and the boss explosion is worth the trouble. This is the best free shmup that I've seen do so many things so well.
+
+- Cube Colossus: Excellent visual style (nice explosions), unique and useful control mechanic, bullet contrast against backgrounds, engaging sound design (especially when buying upgrades), ample warning before bosses and spawning enemies, and enemies have visible health and show signs of taking damage.
+
+- Death vs. Monstars: visually and audibly unique explosions, a simple control mechanic that allows for quick and accurate aiming, popcorn enemies, a spectacular boss explosion, and enemy bullets that stay visible.
+
+- Heavy Weapons: Great use of sound (especially of enemies spawning nearby), effects and menus match visual style of the game, and of course there are many popcorn enemies.
+
+1. Tiny player and bullet collision size. 
+
+2. Large, bright enemy bullets that you can see easily. Should be fairly slow moving, especially early in the game. 
+
+3. Level design that requires you to think a bit, and plan ahead in some cases. 
+
+4. Have varied backgrounds and terrain (not just space). Make sure the backgrounds don't blend with the bullets. 
+
+5. Level design should be fairly original in at least some places. 
+
+6. Have a decent, but not overly complicated scoring system. 
+
+7. Make sure explosions don't cover up enemy bullets! 
+
+8. Don't be repetitive. 5-8 short but varied levels is better than 100 long ones. 
+
+9. Your player ship should die in one hit (or maybe 2-3 if using a forcefield type upgrade) - none of this life bar crap. (see point 10) 
+
+10. Don"t allow the player to kill too much without having to dodge anything. If this happens they will begin to concentrate on killing rather than dodging, and will get frustrated if they get hit by a stray bullet. 
+
+11. Warn the player of all dangerous incomming attacks (tons of bullets, big beam lasers etc) 
+
+12. Make sure there is a way out of any situation providing you know the correct tactic.... never make death certain. 
+
+13. Have a variety of weapons to use, each one should behave differently and each should be useful in certain situations. Don't just have 10 types of standard laser with varying damage.

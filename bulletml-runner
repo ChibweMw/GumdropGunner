@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import time
+
+import pygame
+
+import bulletml
+import bulletml.bulletyaml
+from bulletml.collision import collides_all
+
+from os import path
+
+try:
+	import yaml
+except ImportError:
+	yaml = None
+
+try:
+	import psyco
+except ImportError:
+	pass
+else:
+	psyco.full()
+
+import glob
+
+def main():
+	# if not argv:
+	#     raise SystemExit("Usage: %s filename ..." % sys.argv[0])
+	# print("=================>", argv)
+
+	pygame.display.init()
+	WIDTH = 180 * 2
+	HEIGHT = 320 * 2
+	half_screen_width = WIDTH / 2
+	half_screen_height = HEIGHT / 2
+
+	screen = pygame.display.set_mode([WIDTH, HEIGHT], pygame.DOUBLEBUF)
+	red = pygame.Surface([3, 3])
+	red.fill([255, 0, 0])
+	green = pygame.Surface([3, 3])
+	green.fill([0, 255, 0])
+	blue = pygame.Surface([3, 3])
+	blue.fill([0, 0, 255])
+	clock = pygame.time.Clock()
+	target = bulletml.Bullet()
+	posx = 150
+	posy = 150
+
+	bullet_pattern_dir = glob.glob('bullet-patterns/*.xml')
+	# print("=====>target val", target)
+
+	# load art assets
+	img_dir = path.join(path.dirname(__file__), 'img')
+	mob_bullet_img = pygame.image.load(path.join(img_dir, "sprite_que_bullet_1.png")).convert()
+	mob_bullet_img_2 = pygame.image.load(path.join(img_dir,"sprite_que_bullet-2-1.png")).convert()
+
+	norm = mob_bullet_img
+	homer = mob_bullet_img_2
+
+
+	bullets = dict(red=red, green=green, blue=blue, norm=norm, homer=homer)
+
+	file_idx = 0
+
+	bullet_radius = 12.5
+	bullet_posx = 15
+	bullet_posy = 15
+	max_hp = 10						 
+
+	while True:
+		# filename = argv[file_idx % len(argv)]
+		filename = bullet_pattern_dir[file_idx % len(bullet_pattern_dir)]
+		doc = bulletml.BulletML.FromDocument(open(filename, "rU"))
+		source = bulletml.Bullet.FromDocument(
+			doc, x=half_screen_width, y=HEIGHT - 60 , target=target, rank=0.5, max_hp=333)
+		
+		# source.max_hp = max_hp
+		print("<<OG SOURCE>>", source)
+		active = set([source])
+		# print('===========> ACTIVE', active)
+		source.vanished = True
+		print(filename)
+		print ("  Loaded %d top-level actions." % len(source.actions))
+		print("THIS IS WORKING!")
+		frames = 0
+		total = 0
+		paused = False
+		newfile = False
+
+		pygame.display.set_caption(os.path.basename(filename))
+
+
+		while active and not newfile:
+			go = False
+
+			mouse_x, mouse_y = pygame.mouse.get_pos()
+
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					raise SystemExit
+				elif event.type == pygame.KEYDOWN:
+					if event.key == pygame.K_SPACE:
+						paused ^= True
+					elif event.key == pygame.K_g:
+						go = True
+					elif event.key == pygame.K_PAGEUP:
+						file_idx -= 1
+						newfile = True
+					elif event.key == pygame.K_PAGEDOWN:
+						file_idx += 1
+						newfile = True
+					elif event.key == pygame.K_RETURN:
+						newfile = True
+					elif event.key == pygame.K_LEFT:
+						bullet_posx += 1
+						print("bullet posx:", bullet_posx)
+
+					elif event.key == pygame.K_RIGHT:
+						bullet_posx -= 1
+						print("bullet posx:", bullet_posx)
+					elif event.key == pygame.K_UP:
+						bullet_posy += 1
+						print("bullet posy:", bullet_posy)
+
+					elif event.key == pygame.K_DOWN:
+						bullet_posy -= 1
+						print("bullet posy:", bullet_posy)
+
+					elif event.key == pygame.K_s:
+						bullet_radius -= 1
+						print("bullet radius:", bullet_radius)						
+					elif event.key == pygame.K_a:
+						bullet_radius += 1
+						print("bullet radius:", bullet_radius)
+					elif event.key == pygame.K_z:
+						source = bulletml.Bullet.FromDocument(
+							doc, x=target.x, y=target.y, target=target, rank=0.5, max_hp=0)
+						source.vanished = False
+						# source.radius = 6
+						print("====>>>>SOURCE RADIUS", source.radius)
+						active.add(source)
+					elif event.key == pygame.K_ESCAPE:
+						 raise SystemExit
+			target.x, target.y = pygame.mouse.get_pos()
+
+			# invert the 'y' value because bulletml co-ords origin is at screen bottom left
+			target.y = HEIGHT - target.y
+			# what are px and py
+			target.px = target.x
+			target.py = target.y
+
+			# bullet_posy = bullet_posx
+
+			collides = False
+			# print( "////////", collides, "VVVVVV" )
+
+			if not paused or go:
+				lactive = list(active)
+				# print "LACTIVE",lactive,"LACTIVE"
+				start = time.time()
+				count = len(active)
+				for obj in lactive:
+					new = obj.step()
+					# total += len(new)
+					active.update(new)
+					# remove bullets once out of specified bounds
+					# these are using good o'l pygame co-ords
+					# account for bullet size as well, as an update
+					if (obj.finished
+						or not (0 < obj.x < WIDTH)
+						or not (0 < obj.y < HEIGHT)):
+						active.remove(obj)
+				# check for collisions among active entities
+			if lactive:
+				collides = collides_all(target, lactive)
+				for obj in collides:
+					obj.hp -= 1
+					if obj.hp <= 0:
+						print("DEDEDEDEDEDEDEDEDEDEDEDE")
+						print( ">>>Colleded obj>>>", obj.hp, "<<<<<<" )
+				
+				elapsed = time.time() - start
+
+				# some performance stats
+				frames += 1
+				# if frames % 100 == 0:
+				# 	print "  Processing: %04d: %d bullets, %d active." % (
+				# 		frames, total, count)
+				# 	if elapsed:
+				# 		seconds_per_bullet = elapsed / count
+				# 		bullets_per_second = count / elapsed
+				# 		print "  %g seconds per bullet (120Hz max: %g)." % (
+				# 			seconds_per_bullet, bullets_per_second / 120)
+
+			# collision feedback effect
+			screen.fill([0, 0, 164] if collides else [0, 0, 0] )
+			
+			# rendering (and appearance)
+			for obj in active:
+				# print("////>MAX HP<//////", obj.hp, "////>MAX HP<//////")
+				try:
+					x, y = obj.x, obj.y
+					hp = obj.hp
+					# print("current hp", hp)
+				except AttributeError:
+					pass
+				else:
+					if not obj.vanished:
+						x -= 1
+						y -= 1
+						# if os.path.basename(filename) == '01_SwirlingSun.xml':
+						obj.radius = bullet_radius
+						obj.hp = hp
+						bullet = bullets.get(obj.appearance, norm)
+						shot = pygame.transform.scale2x(bullet)
+						# else:
+						# 	obj.radius = bullet_radius
+						# 	bullet = bullets.get(obj.appearance, homer)
+						# 	shot = pygame.transform.scale2x(bullet)
+						# more of that sweet 
+						# sweet inversion on the 'y' axis!
+						# so the bullet may be rendered correctly
+						screen.blit(shot, [x - bullet_posx, (HEIGHT - bullet_posy) - y])
+			clock.tick(60)
+			pygame.display.flip()
+
+		# print "  Finished: %04d: %d bullets." % (frames, total)
+
+# if __name__ == "__main__":
+#     main(sys.argv[1:])
+
+main()
