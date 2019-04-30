@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # python-bulletml - BulletML for Python
 
 BulletML is the Bullet Markup Language. BulletML can describe the
@@ -59,3 +60,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+=======
+# GumdropGunner
+Vignette shmup game made with python and pygame!
+>>>>>>> 9c0fb49c18e2bcdb3c619433a7e9b1bb5cc50abe
