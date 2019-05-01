@@ -1201,13 +1201,9 @@ def show_go_screen():
 
 	orig_menu_items = [  
 					"Play", 
-					"About",
-					"High Score", 
 					"Quit"]
 
 	menu_items = [  "Play", 
-					"About",
-					"High Score", 
 					"Quit"]
 	hs_items = [111, 3242314, 423423, 12321, 122134]
 	
@@ -1232,11 +1228,11 @@ def show_go_screen():
 					# print("CURMENUITEM", menu_items[curr_menu_item % len(menu_items)])
 				if event.key == pygame.K_DOWN:
 					curr_menu_item += 1
-					if curr_menu_item > len(menu_items): curr_menu_item = 1
+					if curr_menu_item > len(menu_items): curr_menu_item = 0
 					# print("CURMENUITEM", menu_items[curr_menu_item % len(menu_items)])
 					
 					# transitioning = True
-				if event.key == pygame.K_z:
+				if event.key == pygame.K_z or event.key == pygame.K_RETURN:
 					if curr_menu_item == 1:
 						transitioning = True
 					elif curr_menu_item == len(menu_items):
@@ -1265,7 +1261,7 @@ def show_go_screen():
 
 
 		# MENU ARROW
-		if curr_menu_screen == 1:
+		if curr_menu_screen == 0:
 			trans_overlay(alpha=200, size=(WIDTH, (18 + 26) * 2), pos=(((0, HEIGHT / 2 - HEIGHT / 2 + (HEIGHT * 0.2)))))
 
 			trans_overlay(alpha=200, size=(WIDTH * 0.6, (18 + 30) * 3), pos=(((WIDTH * 0.2, HEIGHT / 2 + 18 ))))
@@ -1275,10 +1271,10 @@ def show_go_screen():
 			draw_text(screen, ">", 22, WIDTH / 2 - 60, HEIGHT / 2 + 18 * curr_menu_item, centered=False)
 
 			draw_text(screen, menu_items[0], 22, WIDTH / 2 - 40, HEIGHT / 2 + 18, centered=False )
+			# draw_text(screen, menu_items[1], 22, WIDTH / 2 - 40, HEIGHT / 2 + 18 * 2, centered=False)
+			# draw_text(screen, menu_items[2], 22, WIDTH / 2 - 40, HEIGHT / 2 + 18 * 3, centered=False)
 			draw_text(screen, menu_items[1], 22, WIDTH / 2 - 40, HEIGHT / 2 + 18 * 2, centered=False)
-			draw_text(screen, menu_items[2], 22, WIDTH / 2 - 40, HEIGHT / 2 + 18 * 3, centered=False)
-			draw_text(screen, menu_items[3], 22, WIDTH / 2 - 40, HEIGHT / 2 + 18 * 4, centered=False)
-		elif curr_menu_screen == 0:
+		elif curr_menu_screen == 1:
 			trans_overlay(alpha=200, size=(WIDTH, (18 + 26) * 2), pos=(0, 0) )
 
 			trans_overlay(alpha=200, size=(WIDTH, HEIGHT * 0.8), pos=(0,  HEIGHT - HEIGHT * 0.8) )
